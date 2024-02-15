@@ -418,13 +418,14 @@ bool PdfPlug::convert(const QString& fn)
 				PdfImportOptions optImp(ScCore->primaryMainWindow());
 				QFileInfo fi(fn);
 				optImp.setUpOptions(fi.fileName(), firstPage, lastPage, m_interactive, boxesAreDifferent, this);
-				if (!optImp.exec())
-				{
-					if (m_progressDialog)
-						m_progressDialog->close();
-					m_pdfDoc = nullptr;
-					return false;
-				}
+				optImp.onOkButtonClicked();
+				// if (!optImp.exec())
+				// {
+				// 	if (m_progressDialog)
+				// 		m_progressDialog->close();
+				// 	m_pdfDoc = nullptr;
+				// 	return false;
+				// }
 				pageString = optImp.getPagesString();
 				contentRect = optImp.getCropBox();
 				cropped = optImp.croppingEnabled();

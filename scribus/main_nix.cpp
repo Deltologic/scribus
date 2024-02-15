@@ -65,10 +65,6 @@ int mainApp(int argc, char **argv)
 {
 	emergencyActivated = false;
 
-#if !defined(Q_OS_MACOS)
-	qputenv("QT_QPA_PLATFORM", "xcb");
-#endif
-
 	ScribusQApp app(argc, argv);
 	initCrashHandler();
 	app.parseCommandLine();

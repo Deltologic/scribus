@@ -44,7 +44,7 @@ private:
 	int m_maxPage { 0 };
 	bool m_resized { false };
 
-private slots:
+public slots:
 	void onOkButtonClicked();
 };
 
